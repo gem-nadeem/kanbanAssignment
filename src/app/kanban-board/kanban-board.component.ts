@@ -27,7 +27,6 @@ export class KanbanBoardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.tasks$ =this._taskService.tasks$;
     this._taskService.editTaskDetails$.subscribe((data : any)=>{
      if(data){
       this._taskService.editIconClicked= true;
@@ -47,7 +46,6 @@ export class KanbanBoardComponent implements OnInit {
   openTaskModal() {
     this._taskService.setTaskDetails(null);
     this.ngxSmartModalService.getModal("taskModal").open();
-    console.log('Task',);
     
 
   }
@@ -86,22 +84,6 @@ export class KanbanBoardComponent implements OnInit {
     this.ngxSmartModalService.getModal("taskModal").close();
      
   }
-
-//   getAllTask(){
-//     this._taskService.showTask().subscribe(res =>{
-//      this._taskService.allTask = res;
-//      console.log('All Task :',this._taskService.allTask);
-     
-//    })
-//  }
 }
 
 
-// this._taskService.updateTask(this.taskModelObj.id,this.taskModelObj).subscribe(res =>{
-//   console.log('Task Update :',res);
-//   this._taskService.getAllTask();
-  
-// },err =>{
-//   console.log("Error : ",err);
-  
-// })

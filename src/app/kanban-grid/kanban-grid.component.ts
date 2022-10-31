@@ -1,6 +1,5 @@
-// import { createViewChild } from '@angular/compiler/src/core';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { timeStamp } from 'console';
 import { NgxSmartModalComponent, NgxSmartModalService } from 'ngx-smart-modal';
 import { Observable } from 'rxjs';
 import { Task,TaskService } from '../service/task.service';
@@ -11,20 +10,13 @@ import { Task,TaskService } from '../service/task.service';
   styleUrls: ['./kanban-grid.component.css']
 })
 export class KanbanGridComponent implements OnInit {
-
-  // task$ :Observable<Task[]>;
   newTasks = this._taskService.newTasks;
   progressTasks = this._taskService.progressTasks;
   testTasks= this._taskService.testTasks;
   closeTasks= this._taskService.closeTasks;
   allTask :any;
-
-  // @ViewChild()
   constructor(private _taskService: TaskService,
     private modalService : NgxSmartModalService) { 
-    // console.log('Tasks :', this.newTasks);
-    // this.getAllTask();
-    
   }
 
   ngOnInit() {
@@ -34,10 +26,7 @@ export class KanbanGridComponent implements OnInit {
   @ViewChild("taskModal")
   taskModal: NgxSmartModalComponent;
   openTaskModal(data){
-        this.modalService.getModal("taskModal").open();
-        
-        
-       
+        this.modalService.getModal("taskModal").open();   
   }
 
   onDelete(data : any){

@@ -19,12 +19,6 @@
       "priority": "1"
     },
     {
-      "id": 7,
-      "value": "study",
-      "tag": "Close",
-      "priority": "1"
-    },
-    {
       "id": 9,
       "value": "go for walk",
       "tag": "Close",
@@ -46,6 +40,12 @@
       "id": 14,
       "value": "cycling",
       "tag": "New Task",
+      "priority": "1"
+    },
+    {
+      "id": 15,
+      "value": "test kanban assignment",
+      "tag": "Close",
       "priority": "1"
     }
   ],
