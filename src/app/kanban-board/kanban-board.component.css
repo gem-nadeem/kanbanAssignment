@@ -1,0 +1,20 @@
+.header{
+    background-color: #000000;
+    padding: 15px 0;
+    color: #ffffff;
+}
+.header-text{
+    margin: 0 15px;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* padding: 5px; */
+    text-align: left;
+
+}
+
+.add-task{
+    margin: 10px 50px;
+    cursor: pointer;
+    display: inline;
+}
+

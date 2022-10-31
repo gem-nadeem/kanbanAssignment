@@ -1,0 +1,54 @@
+<div class="header">
+  <h3 class="header-text">Kanban</h3>
+</div>
+<div class="add-task" (click)="openTaskModal()">
+  <i class="bi bi-plus-circle"></i>&nbsp; Add New Task
+</div>
+<app-kanban-grid></app-kanban-grid>
+<router-outlet></router-outlet>
+
+<ngx-smart-modal  #taskModal identifier="taskModal" [dismissable] = "false">
+  <form [formGroup]="taskForm">
+    <p>
+      <label for="firstname">Task </label>
+      <input type="text" name="value" class="form-control" formControlName="value" />
+    </p>
+
+    <p>
+      <label  for="priority">Priority </label> &nbsp;
+      <input
+        type="radio"
+        value="0"
+        formControlName="priority"
+      />
+      0
+      <input
+        type="radio"
+        value="1"
+        formControlName="priority"
+
+      />
+      1
+      <input
+        type="radio"
+        value="2"
+        formControlName="priority"
+      />
+      2
+    </p>
+    <p>
+      <label for="tag">Tag </label>
+      <select  name="tag" formControlName="tag" class="form-control" placeholder="Select task category" >
+        <option value="New Task">New Task</option>
+        <option value="In Progress">In Progress</option>
+        <option value="In Test">In Test</option>
+        <option value="Close">Close</option>
+      </select>
+    </p>
+
+    <p>
+      <button *ngIf="!this._taskService.editIconClicked" type="submit" class="btn btn-primary" [disabled]="!this.taskForm.valid" (click)="onSubmit()">Submit</button>
+      <button *ngIf="this._taskService.editIconClicked" type="submit" class="btn btn-primary" [disabled]="!this.taskForm.valid" (click)="onUpdate()">Update</button>
+    </p>
+  </form>
+</ngx-smart-modal>

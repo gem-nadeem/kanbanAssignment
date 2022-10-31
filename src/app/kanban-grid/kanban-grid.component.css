@@ -1,0 +1,44 @@
+
+.grid-container{
+    margin: 20px auto;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:15px;
+    /* grid-auto-rows: 400px; */
+}
+
+.column{
+    background-color: #d8caca;
+    border: 3px yellowgreen solid;
+    border-radius: 5px;
+    min-height: 525px;
+    width: 275px;
+
+}
+
+.column-header{
+    text-align: center;
+    border-bottom: 1px solid #000;
+    background-color: #ffffff;
+}
+
+.task-container{
+    margin: 5px;
+    background-color: #ffffff;
+    padding: 2px;
+    
+}
+
+.delete-container{
+    cursor: pointer;
+    float: right;
+    padding: 3px;
+}
+
+.edit-icon{
+    float: right;
+    cursor: pointer;
+    padding: 3px;
+
+}
