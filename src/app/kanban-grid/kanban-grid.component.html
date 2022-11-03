@@ -4,19 +4,7 @@
       <div class="column-header">New Task</div>
       <div *ngFor="let task of this._taskService.allTask">
         <div class="task-container" *ngIf="task.tag == 'New Task'">
-          <div class="edit-container" (click)="onEditTask(task)">
-            <i class="bi bi-pencil-square edit-icon"></i>
-          </div>
-          <div class="delete-container" (click)="onDelete(task)">
-            <i class="bi bi-trash"></i>
-          </div>
-          <div class="task-detail">
-            <ul>
-              <li>id - {{ task.id }}</li>
-              <li>Task - {{ task.value }}</li>
-              <li>Priority - {{ task.priority }}</li>
-            </ul>
-          </div>
+          <app-task-card [task]="task"></app-task-card>
         </div>
       </div>
     </div>
@@ -24,19 +12,8 @@
       <div class="column-header">In Progress</div>
       <div *ngFor="let task of this._taskService.allTask">
         <div class="task-container" *ngIf="task.tag == 'In Progress'">
-          <div class="edit-container" (click)="onEditTask(task)">
-            <i class="bi bi-pencil-square edit-icon"></i>
-          </div>
-          <div class="delete-container" (click)="onDelete(task)">
-            <i class="bi bi-trash"></i>
-          </div>
-          <div class="task-detail">
-            <ul>
-              <li>id - {{ task.id }}</li>
-              <li>Task - {{ task.value }}</li>
-              <li>Priority - {{ task.priority }}</li>
-            </ul>
-          </div>
+          <app-task-card [task]="task"></app-task-card>
+         
         </div>
       </div>
     </div>
@@ -44,7 +21,40 @@
       <div class="column-header">In Testing</div>
       <div *ngFor="let task of this._taskService.allTask">
         <div class="task-container" *ngIf="task.tag == 'In Test'">
-          <div class="edit-container" (click)="onEditTask(task)">
+          <app-task-card [task]="task"></app-task-card>
+        </div>
+      </div>
+    </div>
+    <div class="column column-4">
+      <div class="column-header">Closed</div>
+      <div *ngFor="let task of this._taskService.allTask">
+        <div class="task-container" *ngIf="task.tag == 'Close'">
+          <app-task-card [task]="task"></app-task-card>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="edit-container" (click)="onEditTask(task)">
+  <i class="bi bi-pencil-square edit-icon"></i>
+</div>
+<div class="delete-container" (click)="onDelete(task)">
+  <i class="bi bi-trash"></i>
+</div>
+<div class="task-detail">
+  <ul>
+    <li>id - {{ task.id }}</li>
+    <li>Task - {{ task.value }}</li>
+    <li>Priority - {{ task.priority }}</li>
+  </ul>
+</div> 
+
+
+
+<div class="edit-container" (click)="onEditTask(task)">
             <i class="bi bi-pencil-square edit-icon"></i>
           </div>
           <div class="delete-container" (click)="onDelete(task)">
@@ -57,13 +67,9 @@
               <li>Priority - {{ task.priority }}</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="column column-4">
-      <div class="column-header">Closed</div>
-      <div *ngFor="let task of this._taskService.allTask">
-        <div class="task-container" *ngIf="task.tag == 'Close'">
+          
+
+
           <div class="delete-container" (click)="onDelete(task)">
             <i class="bi bi-trash"></i>
           </div>
@@ -74,8 +80,5 @@
               <li>Priority - {{ task.priority }}</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+-->

@@ -1,0 +1,19 @@
+.task-container{
+    margin: 5px;
+    background-color: #ffffff;
+    padding: 2px;
+    
+}
+
+.delete-container{
+    cursor: pointer;
+    float: right;
+    padding: 3px;
+}
+
+.edit-icon{
+    float: right;
+    cursor: pointer;
+    padding: 3px;
+
+}

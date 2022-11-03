@@ -1,0 +1,13 @@
+<div class="edit-container" *ngIf="task.tag!='Close'" (click)="onEditTask(task)">
+  <i class="bi bi-pencil-square edit-icon"></i>
+</div>
+<div class="delete-container" (click)="onDelete(task)">
+  <i class="bi bi-trash"></i>
+</div>
+<div class="task-detail">
+  <ul>
+    <li>id - {{ task.id }}</li>
+    <li>Task - {{ task.value }}</li>
+    <li>Priority - {{ task.priority }}</li>
+  </ul>
+</div>
