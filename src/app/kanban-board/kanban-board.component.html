@@ -2,13 +2,15 @@
   <h3 class="header-text">Kanban</h3>
 </div>
 <div class="add-task" (click)="openTaskModal()">
-  <i class="bi bi-plus-circle"></i>&nbsp; Add New Task
+  <i class="bi bi-plus-circle"></i> 
+  <span class="m-1">Add New Task</span>
 </div>
 <app-kanban-grid></app-kanban-grid>
 <router-outlet></router-outlet>
 
-<ngx-smart-modal  #taskModal identifier="taskModal" [dismissable] = "false">
-  <form [formGroup]="taskForm">
+<ngx-smart-modal  #taskModal identifier="taskModal" [dismissable] = "false" [closable]="false" customClass="pt-4">
+  <span class="close-modal" (click)="taskModal.close()">x</span>
+  <form [formGroup]="taskForm" class="modal-form">
     <p>
       <label for="firstname">Task </label>
       <input type="text" name="value" class="form-control" formControlName="value" />
@@ -47,8 +49,8 @@
     </p>
 
     <p>
-      <button *ngIf="!this._taskService.editIconClicked" type="submit" class="btn btn-primary" [disabled]="!this.taskForm.valid" (click)="onSubmit()">Submit</button>
-      <button *ngIf="this._taskService.editIconClicked" type="submit" class="btn btn-primary" [disabled]="!this.taskForm.valid" (click)="onUpdate()">Update</button>
+      <button *ngIf="!this._taskService.editIconClicked" type="submit" class="btn btn-primary submit-btn" [disabled]="!this.taskForm.valid" (click)="onSubmit()">Submit</button>
+      <button *ngIf="this._taskService.editIconClicked" type="submit" class="btn btn-primary submit-btn" [disabled]="!this.taskForm.valid" (click)="onUpdate()">Update</button>
     </p>
   </form>
 </ngx-smart-modal>

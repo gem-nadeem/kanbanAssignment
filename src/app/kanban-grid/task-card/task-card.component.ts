@@ -20,8 +20,6 @@ export class TaskCardComponent implements OnInit {
   onDelete(data : TaskData){
     this._taskService.deleteTask(data.id).subscribe(res =>{
        if(res){
-
-        console.log("Task Deleted!!!");
         this._taskService.getAllTask();
        }
     })
@@ -29,7 +27,6 @@ export class TaskCardComponent implements OnInit {
   }
   onEditTask(data : TaskData){
     this._taskService.setTaskDetails(data);
-    console.log('Data',data);
     this.modalService.getModal("taskModal").open();
     
 

@@ -40,32 +40,11 @@ export class TaskService {
         break;
     }
 
-    // this.newTasks.push(item);
-    // this._task$.next(Object.assign([], this.tasks));
-    // console.log('Task :',this.tasks);
-
     console.log("New Task : ", this.newTasks);
     console.log("Progress Task : ", this.progressTasks);
     console.log("Test Task : ", this.testTasks);
     console.log("Close Task : ", this.closeTasks);
   }
-
-  // remove(id: number) {
-  //   this.tasks.forEach((task, index) => {
-  //     if (task.id === id) {
-  //       this.tasks.splice(index, 1);
-  //     }
-  //     this._task$.next(Object.assign([], this.tasks));
-  //   });
-  // }
-
-//   getAllTask(){
-//     this.showTask().subscribe(res =>{
-//      this.allTask = res;
-//     //  console.log('All Task :',this.allTask);
-     
-//    })
-//  }
 editIconClicked : boolean = false;
 editTaskDetails = new Subject();
 editTaskDetails$ = this.editTaskDetails.asObservable();
@@ -83,7 +62,6 @@ setTaskDetails(details) {
 getAllTask(){
   this.showTask().subscribe(res =>{
    this.allTask = res;
-   console.log('All Task :',this.allTask);
    
  })
 }

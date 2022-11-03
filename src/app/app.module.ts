@@ -8,12 +8,14 @@ import { KanbanGridComponent } from './kanban-grid/kanban-grid.component';
 import { NgxSmartModalModule, NgxSmartModalService } from 'ngx-smart-modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { TaskCardComponent } from './kanban-grid/task-card/task-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KanbanBoardComponent,
-    KanbanGridComponent
+    KanbanGridComponent,
+    TaskCardComponent,
   ],
   imports: [
     BrowserModule,

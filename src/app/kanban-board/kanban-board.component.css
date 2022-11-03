@@ -7,7 +7,6 @@
     margin: 0 15px;
     font-size: 25px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* padding: 5px; */
     text-align: left;
 
 }
@@ -18,3 +17,17 @@
     display: inline;
 }
 
+.close-modal{
+    cursor: pointer;
+    position:absolute;
+    right: 2%;
+    font-size: 20px;
+}
+
+.modal-form{
+    margin-top: 15px;
+}
+
+.submit-btn{
+    float: right;
+}

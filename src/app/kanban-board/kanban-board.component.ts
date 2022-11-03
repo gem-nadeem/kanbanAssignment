@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NgxSmartModalService } from "ngx-smart-modal";
@@ -27,22 +28,25 @@ export class KanbanBoardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._taskService.editTaskDetails$.subscribe((data : any)=>{
-     if(data){
-      this._taskService.editIconClicked= true;
-      this.taskForm.get('id').setValue(data.id);
-      this.taskForm.get('value').setValue(data.value);
-      this.taskForm.get('priority').setValue(data.priority);
-      this.taskForm.get('tag').setValue(data.tag);
-     }else{
-      this._taskService.editIconClicked= false;
-      this.taskForm.get('value').setValue('');
-      this.taskForm.get('priority').setValue('');
-      this.taskForm.get('tag').setValue('');
-     }
-    })
+    this.getTaskDetails();
   }
 
+  getTaskDetails(){
+    this._taskService.editTaskDetails$.subscribe((data : any)=>{
+      if(data){
+       this._taskService.editIconClicked= true;
+       this.taskForm.get('id').setValue(data.id);
+       this.taskForm.get('value').setValue(data.value);
+       this.taskForm.get('priority').setValue(data.priority);
+       this.taskForm.get('tag').setValue(data.tag);
+      }else{
+       this._taskService.editIconClicked= false;
+       this.taskForm.get('value').setValue('');
+       this.taskForm.get('priority').setValue('');
+       this.taskForm.get('tag').setValue('');
+      }
+     })
+  }
   openTaskModal() {
     this._taskService.setTaskDetails(null);
     this.ngxSmartModalService.getModal("taskModal").open();
@@ -53,10 +57,10 @@ export class KanbanBoardComponent implements OnInit {
     this.taskModelObj.value = this.taskForm.value.value;
     this.taskModelObj.priority = this.taskForm.value.priority;
     this.taskModelObj.tag = this.taskForm.value.tag;
+   
 
     this._taskService.createTask(this.taskModelObj).subscribe(
       (res) => {
-        console.log("Task :", res);
         this._taskService.getAllTask();
       },
       (err) => {
@@ -73,11 +77,10 @@ export class KanbanBoardComponent implements OnInit {
     this.taskModelObj.tag = this.taskForm.value.tag;
 
     this._taskService.updateTask(this.taskModelObj.id,this.taskModelObj).subscribe( res =>{
-        console.log('Task Updated : ',res);
         this._taskService.getAllTask();
         
     },err =>{
-      console.log('Error :',err);
+      alert(err);
       
     });
     this.taskForm.reset();
